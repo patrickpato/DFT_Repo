@@ -1,0 +1,67 @@
+SystemName          bulk silicon
+SystemLabel         si
+
+NumberOfAtoms       2
+NumberOfSpecies     1
+
+%block ChemicalSpeciesLabel
+ 1  14  Si
+%endblock ChemicalSpeciesLabel
+
+PAO.BasisSize       DZP
+PAO.EnergyShift     300 meV
+
+LatticeConstant    5.43 Ang
+%block LatticeVectors
+  0.00  0.50  0.50
+  0.50  0.00  0.50
+  0.50  0.50  0.00
+%endblock LatticeVectors
+
+MeshCutoff          700.0 Ry
+
+MaxSCFIterations    50  
+DM.MixingWeight      0.3 
+DM.NumberPulay       3  
+DM.Tolerance         1.d-4
+ 
+kgridcutoff          7. Ang
+
+SolutionMethod       diagon    
+ElectronicTemperature  25 meV  
+
+%block kgrid_Monkhorst_Pack
+   11  0  0  0.5
+   0  11  0  0.5
+   0  0  11  0.5
+%endblock kgrid_Monkhorst_Pack
+
+
+
+BandLinesScale  pi/a
+%block BandLines                  
+ 1  0.000  0.000  0.000  \Gamma   
+25  2.000  0.000  0.000     X    
+10  2.000  1.000  0.000     W   
+15  1.000  1.000  1.000     L     
+20  0.000  0.000  0.000  \Gamma  
+25  1.500  1.500  1.500    K
+%endblock BandLines
+
+
+AtomicCoordinatesFormat  Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+    0.    0.    0.     1  Si        1
+    0.25  0.25  0.25   1  Si        2
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+%block ProjectedDensityOfStates
+  -70.00  5.00  0.150 3000  eV
+%endblock ProjectedDensityOfStates
+
+%PDOS.kgrid_Monkhorst_Pack
+   60  0  0  0.5
+    0 60  0  0.5
+    0  0 60  0.5
+%end PDOS.kgrid_Monkhorst_Pack
+
